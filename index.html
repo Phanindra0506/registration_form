@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #408cac;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #f6efef;
+    }
+    .container {
+      background-color: hsla(202, 73%, 97%, 0.231);
+      border-radius: 12px;
+      padding: 40px 50px;
+      box-shadow: 0 6px 25px rgba(56, 55, 55, 0.3);
+      width: 400px;
+    }
+    h1 {
+      text-align: center;
+      color: #060505;
+      font-size: 2.5rem; /* Adjusted size for the main heading */
+      margin-bottom: 10px; /* Space between headings */
+    }
+    h2 {
+      text-align: center;
+      color: #060505;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #070707;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #accbe1;
+      border-radius: 6px;
+      background-color: #4d7485;
+      color: #dde9f0;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus,
+    input[type="password"]:focus,
+    input[type="file"]:focus {
+      border-color: #accbe1;
+      outline: none;
+      background-color: #396370;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+      accent-color: #accbe1;
+      cursor: pointer;
+    }
+    .radio-group,
+    .checkbox-group {
+      margin-top: 5px;
+      color: #dde9f0;
+    }
+    a {
+      color: #accbe1;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    button {
+      background-color: #accbe1;
+      color: #1f5f7a;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    button:hover,
+    button:focus {
+      background-color: #538cad;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Our Registration</h1>
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <label>Gender</label>
+      <div class="radio-group">
+        <input type="radio" name="gender" value="Male" required /> Male
+        <input type="radio" name="gender" value="Female" /> Female
+        <input type="radio" name="gender" value="Other" /> Other
+      </div>
+
+      <label>Preferred Location</label>
+      <div class="checkbox-group">
+        <input type="checkbox" name="location" value="Online" /> Online
+        <input type="checkbox" name="location" value="Vizag" /> Vizag
+        <input type="checkbox" name="location" value="Goa" /> Mumbai
+      </div>
+
+      <label for="aadhar">Aadhar Card</label>
+      <input type="file" id="aadhar" name="aadhar" required />
+
+      <label for="password">New Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required />
+
+      <div class="terms">
+        <input type="checkbox" id="terms" required /> I agree to the
+        <a href="#">Terms and Conditions</a>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+      alert("Form submitted successfully.");
+    });
+  </script>
+</body>
+</html>
